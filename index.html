@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Page Title</title>
+    <title>Digital watch</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .watch {
+            font-family: Arial, sans-serif;
+            font-size: 3em;
+            text-align: center;
+            border: 2px solid #333;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-<h1>This is a Heading changes</h1>
-<p>This is a paragraph. changes ramesh gupta</p>
+    <div class="watch">
+        <div class="time" id="time">00:00:00</div>
+    </div>
 
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById('time').textContent = timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Initial call to display the time
+        updateClock();
+
+    </script>
 </body>
+
 </html>
-
-
